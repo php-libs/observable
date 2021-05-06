@@ -1,0 +1,8 @@
+{
+    "name": "php-lib/observable",
+    "description": "Provides clases to simplify observer pattern implementation",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {}
+}
