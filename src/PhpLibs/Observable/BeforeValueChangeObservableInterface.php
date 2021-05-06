@@ -1,6 +1,6 @@
 <?php
 
-namespace Reliese\Patterns\Observable;
+namespace PhpLibs\Observable;
 
 /**
  * Interface BeforeValueChangeObservableInterface
@@ -8,15 +8,16 @@ namespace Reliese\Patterns\Observable;
 interface BeforeValueChangeObservableInterface
 {
     /**
-     * @param callable    $observerFunction
-     * @param array       $valueKeyFilters
+     * @param callable $observerFunction
+     * @param array $valueKeyFilters If this value provides values, then only changes that impact a matching
+     *                               Value Key wil be observed. Defaults to [Observable::ALL_VALUES_KEYS]
      * @param string|null $observerKey An optional string that can be used to remove the observer
      *
      * @return string The Observer Key was passed as $observerKey or the generated value that was used
      */
     public function addBeforeValueChangeObserver(
         callable $observerFunction,
-        array $valueKeyFilters = [],
+        array $valueKeyFilters = [Observable::ALL_VALUES_KEYS],
         ?string $observerKey = null,
     ): string;
 
@@ -27,5 +28,4 @@ interface BeforeValueChangeObservableInterface
      * @param string $observerKey
      */
     public function removeBeforeValueChangeObserver(string $observerKey): void;
-
 }
