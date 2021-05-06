@@ -1,8 +1,15 @@
 {
-    "name": "php-lib/observable",
+    "name": "php-libs/observable",
     "description": "Provides clases to simplify observer pattern implementation",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "stable",
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "PhpLibs\\Observable\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    }
 }
