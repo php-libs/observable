@@ -23,6 +23,7 @@ trait AfterValueChangeObservableTrait
     protected function raiseAfterValueChange(string $valueKey, mixed $currentValue): void
     {
         Observable::raiseAfterValueChange(
+            $this,
             $valueKey,
             $currentValue,
             $this->_afterValueChangeObservers

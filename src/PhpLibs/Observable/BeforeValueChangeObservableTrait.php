@@ -23,7 +23,9 @@ trait BeforeValueChangeObservableTrait
      */
     protected function raiseBeforeValueChange(string $valueKey, mixed $currentValue, mixed $newValue): void
     {
-        Observable::raiseBeforeValueChange($valueKey,
+        Observable::raiseBeforeValueChange(
+            $this,
+            $valueKey,
             $currentValue,
             $newValue,
             $this->_beforeValueChangeObservers
