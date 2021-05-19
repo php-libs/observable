@@ -45,7 +45,8 @@ trait BeforeValueChangeObservableTrait
         array $valueKeyFilters = [Observable::ALL_VALUES_KEYS],
         ?string $observerKey = null,
     ): string {
-        return Observable::addObserver($observerFunction,
+        return Observable::addObserver(
+            $observerFunction,
             $valueKeyFilters,
             $observerKey,
             $this->_observerKeysAdded,

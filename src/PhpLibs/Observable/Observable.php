@@ -48,7 +48,7 @@ abstract class Observable
     }
     
     public static function raiseAfterValueChange(
-        object $sourceObject,
+        object $source,
         string $valueKey,
         mixed $currentValue,
         array &$_afterValueChangeObservers
@@ -62,7 +62,7 @@ abstract class Observable
          */
         if (\array_key_exists($valueKey, $_afterValueChangeObservers)) {
             foreach ($_afterValueChangeObservers[$valueKey] as $observer) {
-                $observer($sourceObject, $valueKey, $currentValue);
+                $observer($source, $valueKey, $currentValue);
             }
         }
 
@@ -71,13 +71,13 @@ abstract class Observable
          */
         if (\array_key_exists('*', $_afterValueChangeObservers)) {
             foreach ($_afterValueChangeObservers[static::ALL_VALUES_KEYS] as $observer) {
-                $observer($sourceObject, $valueKey, $currentValue);
+                $observer($source, $valueKey, $currentValue);
             }
         }
     }
     
     public static function raiseBeforeValueChange(
-        object $sourceObject,
+        object $source,
         string $valueKey, 
         mixed $currentValue,
         mixed $newValue,
@@ -92,7 +92,7 @@ abstract class Observable
          */
         if (\array_key_exists($valueKey, $_beforeValueChangeObservers)) {
             foreach ($_beforeValueChangeObservers[$valueKey] as $observer) {
-                $observer($sourceObject, $valueKey, $currentValue, $newValue);
+                $observer($source, $valueKey, $currentValue, $newValue);
             }
         }
 
@@ -101,7 +101,7 @@ abstract class Observable
          */
         if (\array_key_exists('*', $_beforeValueChangeObservers)) {
             foreach ($_beforeValueChangeObservers[static::ALL_VALUES_KEYS] as $observer) {
-                $observer($sourceObject, $valueKey, $currentValue, $newValue);
+                $observer($source, $valueKey, $currentValue, $newValue);
             }
         }        
     }
